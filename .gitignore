@@ -1,0 +1,13 @@
+.DS_STORE
+venv/
+__pycache__/
+
+# debug output
+/yelp_place_scraper/_output/*
+!/yelp_place_scraper/_output/.gitkeep
+
+# Data Files
+*~
+*.csv
+*.json
+*.pickle
