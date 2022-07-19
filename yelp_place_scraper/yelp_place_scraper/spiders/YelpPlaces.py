@@ -72,31 +72,10 @@ class YelpPlaces(Spider):
             website = website.replace('%3A', ':')
             website = website.replace('%2F', '/')
             website = website[website.index('url=')+4:website.index('&amp')]
-            # website = website.decode('unicode_escape').encode('ascii')
             print(website)
         except:
             website = None
 
-        # if website:
-        #     yield Request(
-        #         website,
-        #         meta={
-        #             "name": name,
-        #             "website": website,
-        #             "street_address": street_address,
-        #             "city": city,
-        #             "state": state,
-        #             "country": country,
-        #             "postal_code": postal_code,
-        #             "price_range": price_range,
-        #             "phone": phone,
-        #             "cuisine_type": cuisine_type,
-        #             "rating": rating,
-        #             "review_count": review_count,
-        #         },
-        #         callback=self.parse_website,
-        #     )
-        # else:
         place_loader = PlaceLoader()
 
         place_loader.add_value('name', name)
@@ -116,6 +95,3 @@ class YelpPlaces(Spider):
         place = place_loader.load_item()
 
         yield place
-
-    # def parse_website(self, response):
-        # 
